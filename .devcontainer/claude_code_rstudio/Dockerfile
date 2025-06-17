@@ -37,7 +37,7 @@ RUN apt install -y r-base r-base-dev
 # Install RStudio Server
 RUN ARCH=$(dpkg --print-architecture) && \
   if [ "$ARCH" = "amd64" ]; then \
-    wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2023.12.1-402-amd64.deb && \
+    wget https://download2.rstudio.org/server/focal/amd64/rstudio-server-2025.05.1-513-amd64.deb && \
     gdebi -n rstudio-server-2023.12.1-402-amd64.deb && \
     rm rstudio-server-2023.12.1-402-amd64.deb; \
   elif [ "$ARCH" = "arm64" ]; then \
