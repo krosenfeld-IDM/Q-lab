@@ -35,7 +35,9 @@ RUN apt update && apt install -y less \
   libharfbuzz-dev \
   libfribidi-dev \ 
   r-base \
-  r-base-dev
+  r-base-dev \
+  locales \
+  language-pack-en
 
 # Install RStudio Server
 RUN ARCH=$(dpkg --print-architecture) && \
@@ -78,6 +80,11 @@ RUN echo "node:rstudious" | chpasswd
 
 # Add node user to sudoers for rstudio-server command only
 RUN echo "node ALL=(ALL) NOPASSWD: /usr/sbin/rstudio-server" >> /etc/sudoers
+
+# Configure RStudio Server to use /workspace as default working directory
+RUN mkdir -p /etc/rstudio && \
+  echo "session-default-working-dir=/workspace" > /etc/rstudio/rsession.conf && \
+  echo "session-default-new-project-dir=/workspace" >> /etc/rstudio/rsession.conf
 
 # Set up non-root user
 USER node

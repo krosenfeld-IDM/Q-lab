@@ -39,7 +39,8 @@
   "remoteEnv": {
     "CLAUDE_CONFIG_DIR": "/home/node/.claude",
     "POWERLEVEL9K_DISABLE_GITSTATUS": "true",
-    "R_LIBS_USER": "/home/node/R/library"
+    "R_LIBS_USER": "/home/node/R/library",
+    "R_WORKDIR": "/workspace"
   },
   // Forward RStudio ports
   "forwardPorts": [8787],
