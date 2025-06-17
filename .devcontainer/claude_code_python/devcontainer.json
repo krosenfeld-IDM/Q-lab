@@ -47,5 +47,5 @@
   },
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
   "workspaceFolder": "/workspace",
-  "postCreateCommand": "zsh .devcontainer/claude_code_python/setup.sh"
+  "postCreateCommand": "zsh .devcontainer/claude_code_python/setup.sh && sudo /usr/local/bin/init-firewall.sh"
 }
