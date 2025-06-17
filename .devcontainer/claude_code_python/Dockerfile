@@ -19,9 +19,9 @@ RUN apt update && apt install -y less \
   iproute2 \
   dnsutils \
   aggregate \
-  jq \ 
-  vim \ 
-  ripgrep \ 
+  jq \
+  vim \
+  ripgrep \
   python3 \
   python3-pip \
   python3-dev \
@@ -71,6 +71,7 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
   -a "source /usr/share/doc/fzf/examples/key-bindings.zsh" \
   -a "source /usr/share/doc/fzf/examples/completion.zsh" \
   -a "export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" \
+  -a "if [ -f /workspace/.venv/bin/activate ]; then source /workspace/.venv/bin/activate; fi" \
   -x
 
 # Install Claude
@@ -79,8 +80,12 @@ RUN npm install -g @anthropic-ai/claude-code
 # Install uv
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Copy pyproject.toml and install Python dependencies
-COPY pyproject.toml /workspace/
-# RUN /home/node/.cargo/bin/uv sync
-
+# Copy and set up firewall script
+COPY init-firewall.sh /usr/local/bin/
+COPY setup.sh /usr/local/bin/
+USER root
+RUN chmod +x /usr/local/bin/init-firewall.sh && \
+  echo "node ALL=(root) NOPASSWD: /usr/local/bin/init-firewall.sh" > /etc/sudoers.d/node-firewall && \
+  chmod 0440 /etc/sudoers.d/node-firewall
+RUN chmod +x /usr/local/bin/setup.sh
 USER node
