@@ -45,5 +45,5 @@
   },
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
   "workspaceFolder": "/workspace",
-  "postCreateCommand": ".devcontainer/claude_code_python/setup.sh"
+  "postCreateCommand": "zsh .devcontainer/claude_code_python/setup.sh"
 }
