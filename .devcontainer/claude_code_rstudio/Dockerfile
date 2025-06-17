@@ -26,14 +26,13 @@ RUN apt update && apt install -y less \
   wget \
   libcurl4-openssl-dev \
   libssl-dev \
-  libssl1.1 \
+  libssl3 \
   libxml2-dev \
   libfontconfig1-dev \
   libharfbuzz-dev \
-  libfribidi-dev
-
-# Install R and RStudio Server
-RUN apt install -y r-base r-base-dev
+  libfribidi-dev \ 
+  r-base \
+  r-base-dev
 
 # Install RStudio Server
 RUN ARCH=$(dpkg --print-architecture) && \
