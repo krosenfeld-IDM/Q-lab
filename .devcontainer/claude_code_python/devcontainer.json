@@ -11,15 +11,17 @@
     "vscode": {
       "extensions": [
         "ms-python.python",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "ms-python.python-test-explorer",
         "eamodio.gitlens"
       ],
       "settings": {
         "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.codeActionsOnSave": {
-          "source.fixAll.eslint": "explicit"
+          "source.fixAll.ruff": "explicit",
+          "source.organizeImports.ruff": "explicit"
         },
         "terminal.integrated.defaultProfile.linux": "zsh",
         "terminal.integrated.profiles.linux": {
@@ -31,7 +33,17 @@
             "path": "zsh"
           }
         },
-        "python.defaultInterpreterPath": "/workspace/.venv/bin/python"
+        "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.ruffEnabled": true,
+        "python.formatting.provider": "none",
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff",
+          "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
+          }
+        }
       }
     }
   },
@@ -41,9 +53,10 @@
     "source=claude-code-config,target=/home/node/.claude,type=volume"
   ],
   "remoteEnv": {
-    "NODE_OPTIONS": "--max-old-space-size=4096",
     "CLAUDE_CONFIG_DIR": "/home/node/.claude",
-    "POWERLEVEL9K_DISABLE_GITSTATUS": "true"
+    "POWERLEVEL9K_DISABLE_GITSTATUS": "true",
+    "PYTHONPATH": "/workspace",
+    "UV_CACHE_DIR": "/home/node/.cache/uv"
   },
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
   "workspaceFolder": "/workspace",

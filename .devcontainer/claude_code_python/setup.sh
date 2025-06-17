@@ -7,4 +7,4 @@ cd /workspace
 
 # Copy pyproject.toml and install Python dependencies
 cp .devcontainer/claude_code_python/pyproject.toml ./
-uv sync
+uv sync --extra dev
