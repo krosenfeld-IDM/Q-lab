@@ -31,10 +31,10 @@ RUN apt update && apt install -y less \
   libharfbuzz-dev \
   libfribidi-dev
 
-# Install R
+# Install R and RStudio Server
 RUN apt install -y r-base r-base-dev
 
-# Install RStudio
+# Install RStudio Server
 RUN ARCH=$(dpkg --print-architecture) && \
   if [ "$ARCH" = "amd64" ]; then \
     wget https://download1.rstudio.org/electron/jammy/amd64/rstudio-2025.05.1-513-amd64.deb && \
@@ -74,7 +74,7 @@ RUN ARCH=$(dpkg --print-architecture) && \
 USER node
 
 # change user password
-RUN echo "rstudio:rstudious" | chpasswd
+RUN echo "node:rstudious" | sudo chpasswd
 
 # Install global packages
 ENV NPM_CONFIG_PREFIX=/usr/local/share/npm-global

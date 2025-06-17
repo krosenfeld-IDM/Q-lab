@@ -10,16 +10,14 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
+        "REditorSupport.r",
+        "ms-toolsai.jupyter",
         "eamodio.gitlens"
       ],
       "settings": {
         "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.codeActionsOnSave": {
-          "source.fixAll.eslint": "explicit"
-        },
+        "r.rterm.linux": "/usr/bin/R",
+        "r.lsp.enabled": true,
         "terminal.integrated.defaultProfile.linux": "zsh",
         "terminal.integrated.profiles.linux": {
           "bash": {
@@ -39,9 +37,9 @@
     "source=claude-code-config,target=/home/node/.claude,type=volume"
   ],
   "remoteEnv": {
-    "NODE_OPTIONS": "--max-old-space-size=4096",
     "CLAUDE_CONFIG_DIR": "/home/node/.claude",
-    "POWERLEVEL9K_DISABLE_GITSTATUS": "true"
+    "POWERLEVEL9K_DISABLE_GITSTATUS": "true",
+    "R_LIBS_USER": "/home/node/R/library"
   },
   // Forward RStudio ports
   "forwardPorts": [8787],
