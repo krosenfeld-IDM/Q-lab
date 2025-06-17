@@ -70,11 +70,11 @@ RUN ARCH=$(dpkg --print-architecture) && \
   sudo dpkg -i "git-delta_0.18.2_${ARCH}.deb" && \
   rm "git-delta_0.18.2_${ARCH}.deb"
 
+# change user password
+RUN echo "node:rstudious" | chpasswd
+
 # Set up non-root user
 USER node
-
-# change user password
-RUN echo "node:rstudious" | sudo chpasswd
 
 # Install global packages
 ENV NPM_CONFIG_PREFIX=/usr/local/share/npm-global
