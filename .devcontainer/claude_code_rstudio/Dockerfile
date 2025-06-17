@@ -36,8 +36,15 @@ RUN apt update && apt install -y less \
   libfribidi-dev \ 
   r-base \
   r-base-dev \
-  locales \
-  language-pack-en
+  locales
+
+# Generate the en_US.UTF-8 locale
+RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
+    locale-gen
+
+# Set environment variables
+ENV LANG=en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
 
 # Install RStudio Server
 RUN ARCH=$(dpkg --print-architecture) && \
