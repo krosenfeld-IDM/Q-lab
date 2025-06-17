@@ -37,11 +37,11 @@ RUN apt install -y r-base r-base-dev
 # Install RStudio Server
 RUN ARCH=$(dpkg --print-architecture) && \
   if [ "$ARCH" = "amd64" ]; then \
-    wget https://download1.rstudio.org/electron/jammy/amd64/rstudio-2025.05.1-513-amd64.deb && \
-    gdebi -n rstudio-2025.05.1-513-amd64.deb && \
-    rm rstudio-2025.05.1-513-amd64.deb; \
+    wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2023.12.1-402-amd64.deb && \
+    gdebi -n rstudio-server-2023.12.1-402-amd64.deb && \
+    rm rstudio-server-2023.12.1-402-amd64.deb; \
   elif [ "$ARCH" = "arm64" ]; then \
-    echo "RStudio Desktop not available for ARM64, skipping RStudio installation"; \
+    echo "RStudio Server not available for ARM64, skipping installation"; \
   fi
 
 # Ensure default node user has access to /usr/local/share
@@ -72,6 +72,9 @@ RUN ARCH=$(dpkg --print-architecture) && \
 
 # change user password
 RUN echo "node:rstudious" | chpasswd
+
+# Add node user to sudoers for rstudio-server command only
+RUN echo "node ALL=(ALL) NOPASSWD: /usr/lib/rstudio-server/bin/rstudio-server" >> /etc/sudoers
 
 # Set up non-root user
 USER node
