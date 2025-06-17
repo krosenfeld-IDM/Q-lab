@@ -53,5 +53,5 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
   "workspaceFolder": "/workspace",
   // Use 'postAttachCommand' to run commands after the container is started.
-  "postAttachCommand": "sudo rstudio-server start"
+  "postAttachCommand": "sudo /usr/sbin/rstudio-server start"
 }

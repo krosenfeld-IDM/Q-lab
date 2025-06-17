@@ -26,6 +26,7 @@ RUN apt update && apt install -y less \
   wget \
   libcurl4-openssl-dev \
   libssl-dev \
+  libssl1.1 \
   libxml2-dev \
   libfontconfig1-dev \
   libharfbuzz-dev \
@@ -74,7 +75,7 @@ RUN ARCH=$(dpkg --print-architecture) && \
 RUN echo "node:rstudious" | chpasswd
 
 # Add node user to sudoers for rstudio-server command only
-RUN echo "node ALL=(ALL) NOPASSWD: /usr/lib/rstudio-server/bin/rstudio-server" >> /etc/sudoers
+RUN echo "node ALL=(ALL) NOPASSWD: /usr/sbin/rstudio-server" >> /etc/sudoers
 
 # Set up non-root user
 USER node
