@@ -19,9 +19,9 @@ RUN apt update && apt install -y less \
   iproute2 \
   dnsutils \
   aggregate \
-  jq \ 
-  vim \ 
-  ripgrep \ 
+  jq \
+  vim \
+  ripgrep \
   python3 \
   python3-pip \
   python3-dev \
@@ -82,9 +82,10 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Copy and set up firewall script
 COPY init-firewall.sh /usr/local/bin/
+COPY setup.sh /usr/local/bin/
 USER root
 RUN chmod +x /usr/local/bin/init-firewall.sh && \
   echo "node ALL=(root) NOPASSWD: /usr/local/bin/init-firewall.sh" > /etc/sudoers.d/node-firewall && \
   chmod 0440 /etc/sudoers.d/node-firewall
-  
+RUN chmod +x /usr/local/bin/setup.sh
 USER node
