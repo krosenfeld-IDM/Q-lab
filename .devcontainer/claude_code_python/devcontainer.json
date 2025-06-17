@@ -10,6 +10,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "ms-python.python",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "eamodio.gitlens"
@@ -28,7 +29,8 @@
           },
           "zsh": {
             "path": "zsh"
-          }
+          },
+          "python.defaultInterpreterPath": "/workspace/.venv/bin/python"
         }
       }
     }
