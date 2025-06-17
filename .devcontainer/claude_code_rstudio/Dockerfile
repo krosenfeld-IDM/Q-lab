@@ -3,6 +3,9 @@ FROM node:20
 ARG TZ
 ENV TZ="$TZ"
 
+# Add Debian 11 repository for libssl1.1
+RUN echo "deb http://deb.debian.org/debian bullseye main" >> /etc/apt/sources.list
+
 # Install basic development tools and iptables/ipset
 RUN apt update && apt install -y less \
   git \
@@ -26,7 +29,7 @@ RUN apt update && apt install -y less \
   wget \
   libcurl4-openssl-dev \
   libssl-dev \
-  libssl3 \
+  libssl1.1 \
   libxml2-dev \
   libfontconfig1-dev \
   libharfbuzz-dev \
