@@ -6,7 +6,3 @@ requires-python = ">=3.10"
 dependencies = [
     "cowsay>=6.0",
 ]
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
