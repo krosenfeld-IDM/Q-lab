@@ -60,5 +60,5 @@
   },
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
   "workspaceFolder": "/workspace",
-  "postCreateCommand": "/usr/local/bin/setup.sh"
+  "postCreateCommand": "/usr/local/bin/setup.sh && sudo /usr/local/bin/init-firewall.sh  > /tmp/firewall.log 2>&1"
 }
