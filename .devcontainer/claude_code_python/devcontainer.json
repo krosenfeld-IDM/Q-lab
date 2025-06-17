@@ -29,9 +29,9 @@
           },
           "zsh": {
             "path": "zsh"
-          },
-          "python.defaultInterpreterPath": "/workspace/.venv/bin/python"
-        }
+          }
+        },
+        "python.defaultInterpreterPath": "/workspace/.venv/bin/python"
       }
     }
   },
