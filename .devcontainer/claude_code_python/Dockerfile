@@ -79,4 +79,8 @@ RUN npm install -g @anthropic-ai/claude-code
 # Install uv
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
+# Copy pyproject.toml and install Python dependencies
+COPY pyproject.toml /workspace/
+RUN /home/node/.cargo/bin/uv sync
+
 USER node
