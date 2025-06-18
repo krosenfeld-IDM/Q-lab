@@ -5,6 +5,3 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 nvm install node
 npm install -g @anthropic-ai/claude-code @openai/codex
-
-cd /workspaces/Q-lab
-uv venv
