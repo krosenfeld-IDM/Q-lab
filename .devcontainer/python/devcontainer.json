@@ -1,6 +1,6 @@
 {
-  "name": "Python - slim",
-  "image": "ghcr.io/astral-sh/uv:python3.11-bookworm-slim",
+  "name": "Python",
+  "image": "ghcr.io/astral-sh/uv:bookworm",
   "customizations": {
     "vscode": {
       "extensions": [
