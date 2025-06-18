@@ -17,7 +17,7 @@
           "source.fixAll.ruff": "explicit",
           "source.organizeImports.ruff": "explicit"
         },
-        "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
+        "python.defaultInterpreterPath": "/workspaces/Q-lab/.venv/bin/python",
         "python.linting.enabled": true,
         "python.linting.ruffEnabled": true,
         "python.formatting.provider": "none",
@@ -32,9 +32,7 @@
     }
   },
   "remoteEnv": {
-    "CLAUDE_CONFIG_DIR": "/home/node/.claude",
-    "PYTHONPATH": "/workspace",
-    "UV_CACHE_DIR": "/home/node/.cache/uv"
+    "PYTHONPATH": "/workspaces/Q-lab"
   },
-  "postCreateCommand": ".devcontainer/rstudio/postCreateCommand.sh && echo 'postCreateCommand completed' > /tmp/create-completed.log"
+  "postCreateCommand": ".devcontainer/python/postCreateCommand.sh && echo 'postCreateCommand completed' > /tmp/create-completed.log"
 }
