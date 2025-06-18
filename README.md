@@ -1,105 +1,29 @@
 # Q-lab
 
-Repository for getting started with Claude Code and Codex CLI
+GitHub template for AI coding assistants with ready-to-use devcontainers.
 
-## Overview
+## Environments
 
-This repository provides ready-to-use development environments (devcontainers) for exploring and learning two powerful AI coding assistants:
+### ⚡ Quick Development (Default)
+- JavaScript/Node.js with Claude Code & Codex pre-installed
+- No firewall restrictions
 
-- **Claude Code**: Anthropic's interactive CLI tool for software engineering tasks
-- **Codex**: OpenAI's code generation and completion tool
+### 🐍 Python (`python_firewall`)
+- Python development with firewall configuration
 
-## Available Development Environments
+### 🌐 JavaScript (`javascript_firewall`) 
+- Node.js with modern tooling and firewall
 
-Choose from three preconfigured devcontainer environments:
+### 📊 RStudio (`rstudio_firewall`)
+- R and RStudio Server with firewall
 
-### 🐍 Python Environment (`python_firewall`)
+## Quick Start
 
-- Python development setup with firewall configuration
-- Ideal for data science, web development, and general Python projects
-- Based on Claude Code's default devcontainer
-
-### 🌐 JavaScript Environment (`javascript_firewall`)
-
-- Node.js and JavaScript development environment
-- Perfect for web development, React, Node.js applications
-- Includes modern JavaScript tooling
-
-### 📊 RStudio Environment (`rstudio_firewall`)
-
-- R and RStudio Server setup
-- Great for statistical analysis, data visualization, and R programming
-- Includes RStudio Server for browser-based development
-
-## Getting Started
-
-### 1. Choose Your Environment
-
-Select the devcontainer that matches your preferred programming language and use case.
-
-### 2. Launch Your Environment
-
-#### Option A: VS Code with Dev Containers
-
-1. Make sure you have VS Code with the Dev Containers extension installed
-2. Open this repository in VS Code
-3. When prompted, select "Reopen in Container" or use `Ctrl+Shift+P` → "Dev Containers: Reopen in Container"
-4. Choose your preferred devcontainer from the list
-
-#### Option B: GitHub Codespaces
-
-1. Navigate to this repository on GitHub
-2. Click the green "Code" button
-3. Select the "Codespaces" tab
-4. Click "Create codespace on main" (or your preferred branch)
-5. Choose your preferred devcontainer when prompted
-6. Your environment will launch directly in your browser
-
-### 3. Start Coding with AI Assistance
-
-#### Using Claude Code
-
-To start:
-
-```bash
-claude
-```
-
-If this is your first time launching claude code you will be prompted to bill either through your subscription or the API.
-
-**Installation & Setup:**
-
-- Visit the [Claude Code documentation](https://docs.anthropic.com/en/docs/claude-code/overview) for installation instructions
-- Learn about [CLI usage and commands](https://docs.anthropic.com/en/docs/claude-code/cli-usage)
-- Explore [tutorials and workflows](https://docs.anthropic.com/en/docs/claude-code/tutorials)
-
-#### Using Codex
-
-To start:
-
-```bash
-codex
-```
-
-If this is your first time launching claude code you will be prompted to bill either through your subscription or the API.
-
-**Getting Started:**
-
-- Visit the [OpenAI Codex GitHub repository](https://github.com/openai/codex) for setup instructions
-- Review documentation and examples
-- Install the necessary CLI tools and configure API access
-
-## Next Steps
-
-1. **Experiment**: Try both tools with simple coding tasks to understand their strengths
-2. **Explore**: Use the provided environments to work on your own projects
-3. **Learn**: Review the documentation links to master advanced features
-4. **Contribute**: Share your experiences and improvements back to the community
+1. **Use this template** - Click "Use this template" to create your repository
+2. **Open in Codespaces** - Click the green "Code" button → "Codespaces" → "Create codespace"
+3. **Start coding** - Run `claude` or `codex` in the terminal
 
 ## Resources
 
 - [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
-- [OpenAI Codex Repository](https://github.com/openai/codex)
 - [VS Code Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers)
-
-Happy coding! 🚀
