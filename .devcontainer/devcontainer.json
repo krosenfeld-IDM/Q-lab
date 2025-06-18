@@ -1,13 +1,10 @@
 {
   "name": "Quick Development Environment - no firewall",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:slim",
   "customizations": {
     "vscode": {
-      "extensions": [
-      ],
-      "settings": {
-        }
-      }
+      "extensions": [],
+      "settings": {}
     }
   },
   "remoteUser": "node",
