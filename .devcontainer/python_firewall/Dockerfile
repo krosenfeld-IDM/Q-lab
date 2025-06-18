@@ -74,8 +74,8 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
   -a "if [ -f /workspace/.venv/bin/activate ]; then source /workspace/.venv/bin/activate; fi" \
   -x
 
-# Install Claude
-RUN npm install -g @anthropic-ai/claude-code
+# Install Claude and codex CLI
+RUN npm install -g @anthropic-ai/claude-code @openai/codex
 
 # Install uv
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
