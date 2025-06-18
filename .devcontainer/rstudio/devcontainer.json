@@ -1,10 +1,6 @@
 {
   "name": "RStudio",
   "image": "ghcr.io/rocker-org/devcontainer/tidyverse:4.5",
-  "containerEnv": {
-    "USER": "rstudio",
-    "PASSWORD": "rstudious"
-  },
   "customizations": {
     "vscode": {
       "extensions": [
