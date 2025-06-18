@@ -1,0 +1,32 @@
+{
+  "name": "No Firewall: RStudio",
+  "image": "ghcr.io/rocker-org/devcontainer/tidyverse:4.5",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "REditorSupport.r",
+        "ms-toolsai.jupyter",
+        "eamodio.gitlens"
+      ],
+      "settings": {
+        "r.rterm.linux": "/usr/bin/R",
+        "r.lsp.enabled": true
+      }
+    }
+  },
+  "remoteEnv": {
+    "R_WORKDIR": "/workspace/Q-lab"
+  },
+  // Forward RStudio ports
+  "forwardPorts": [8787],
+  "portsAttributes": {
+    "8787": {
+      "label": "Rstudio",
+      "requireLocalPort": true,
+      "onAutoForward": "ignore"
+    }
+  },
+  "postCreateCommand": ".devcontainer/rstudio/postCreateCommand.sh && echo 'postCreateCommand completed' > /tmp/create-completed.log",
+  // Use 'postAttachCommand' to run commands after the container is started.
+  "postAttachCommand": "sudo /usr/sbin/rstudio-server start && echo 'postAttachCommand completed' > /tmp/attach-completed.log"
+}

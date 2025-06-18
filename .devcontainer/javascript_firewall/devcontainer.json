@@ -1,5 +1,5 @@
 {
-  "name": "Javascript - firewall enabled",
+  "name": "Firewalled: Javascript",
   "build": {
     "dockerfile": "Dockerfile",
     "args": {

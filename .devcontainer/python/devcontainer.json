@@ -1,12 +1,6 @@
 {
-  "name": "Firewalled: Python",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "args": {
-      "TZ": "${localEnv:TZ:America/Los_Angeles}"
-    }
-  },
-  "runArgs": ["--cap-add=NET_ADMIN", "--cap-add=NET_RAW"],
+  "name": "No Firewall: Python",
+  "image": "ghcr.io/astral-sh/uv:bookworm",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -23,16 +17,6 @@
           "source.fixAll.ruff": "explicit",
           "source.organizeImports.ruff": "explicit"
         },
-        "terminal.integrated.defaultProfile.linux": "zsh",
-        "terminal.integrated.profiles.linux": {
-          "bash": {
-            "path": "bash",
-            "icon": "terminal-bash"
-          },
-          "zsh": {
-            "path": "zsh"
-          }
-        },
         "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
         "python.linting.enabled": true,
         "python.linting.ruffEnabled": true,
@@ -47,18 +31,10 @@
       }
     }
   },
-  "remoteUser": "node",
-  "mounts": [
-    "source=claude-code-bashhistory,target=/commandhistory,type=volume",
-    "source=claude-code-config,target=/home/node/.claude,type=volume"
-  ],
   "remoteEnv": {
     "CLAUDE_CONFIG_DIR": "/home/node/.claude",
-    "POWERLEVEL9K_DISABLE_GITSTATUS": "true",
     "PYTHONPATH": "/workspace",
     "UV_CACHE_DIR": "/home/node/.cache/uv"
   },
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
-  "workspaceFolder": "/workspace",
-  "postCreateCommand": "/usr/local/bin/setup.sh && sudo /usr/local/bin/init-firewall.sh  > /tmp/firewall.log 2>&1"
+  "postCreateCommand": ".devcontainer/rstudio/postCreateCommand.sh && echo 'postCreateCommand completed' > /tmp/create-completed.log"
 }
