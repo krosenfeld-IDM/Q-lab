@@ -7,9 +7,5 @@
       "settings": {}
     }
   },
-  "remoteUser": "node",
-  "workspaceFolder": "/workspace",
-  "mounts": [
-    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
-  ]
+  "remoteUser": "node"
 }
