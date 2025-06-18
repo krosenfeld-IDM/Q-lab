@@ -1,5 +1,5 @@
 {
-  "name": "Quick Development Environment - no firewall",
+  "name": "No Firewall: Javascript (default)",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:latest",
   "customizations": {
     "vscode": {

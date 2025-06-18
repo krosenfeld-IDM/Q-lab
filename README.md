@@ -4,7 +4,7 @@ GitHub template for AI coding assistants with ready-to-use devcontainers.
 
 ## Environments
 
-- ⚡ Quick Development (Default; no firewall restrictions)
+- ⚡ Quick Development (default; javascript)
 - 🐍 Python
 - 📊 RStudio (username/password: rstudio/rstudio)
 
