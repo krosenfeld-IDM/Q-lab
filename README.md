@@ -81,6 +81,8 @@ To start:
 codex
 ```
 
+If this is your first time launching claude code you will be prompted to bill either through your subscription or the API.
+
 **Getting Started:**
 
 - Visit the [OpenAI Codex GitHub repository](https://github.com/openai/codex) for setup instructions
