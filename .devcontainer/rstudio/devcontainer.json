@@ -1,6 +1,10 @@
 {
   "name": "RStudio",
   "image": "ghcr.io/rocker-org/devcontainer/tidyverse:4.5",
+  "containerEnv": {
+    "USER": "rstudio",
+    "PASSWORD": "rstudious"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -9,25 +13,14 @@
         "eamodio.gitlens"
       ],
       "settings": {
-        "editor.formatOnSave": true,
         "r.rterm.linux": "/usr/bin/R",
-        "r.lsp.enabled": true,
-        "terminal.integrated.defaultProfile.linux": "zsh",
-        "terminal.integrated.profiles.linux": {
-          "bash": {
-            "path": "bash",
-            "icon": "terminal-bash"
-          },
-          "zsh": {
-            "path": "zsh"
-          }
-        }
+        "r.lsp.enabled": true
       }
     }
   },
   "remoteEnv": {
     // "R_LIBS_USER": "/home/node/R/library",
-    // "R_WORKDIR": "/workspace"
+    "R_WORKDIR": "/workspace/Q-lab"
   },
   // Forward RStudio ports
   "forwardPorts": [8787],
@@ -38,6 +31,7 @@
       "onAutoForward": "ignore"
     }
   },
+  "postCreateCommand": "./postCreateCommand.sh echo 'postCreateCommand completed' > /tmp/attach-completed.log",
   // Use 'postAttachCommand' to run commands after the container is started.
   "postAttachCommand": "sudo /usr/sbin/rstudio-server start && echo 'postAttachCommand completed' > /tmp/attach-completed.log"
 }
