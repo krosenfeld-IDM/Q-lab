@@ -55,5 +55,5 @@
   "workspaceFolder": "/workspace",
   "postCreateCommand": "sudo /usr/local/bin/init-firewall.sh  > /tmp/firewall.log 2>&1",
   // Use 'postAttachCommand' to run commands after the container is started.
-  "postAttachCommand": "sudo /usr/sbin/rstudio-server start"
+  "postAttachCommand": "sudo /usr/sbin/rstudio-server start && echo 'postAttachCommand completed' > /tmp/attach-completed.log"
 }
