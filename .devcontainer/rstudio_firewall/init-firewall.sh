@@ -56,6 +56,7 @@ for domain in \
     "cran.r-project.org" \
     "cloud.r-project.org" \
     "api.anthropic.com" \
+    "api.openai.com" \
     "sentry.io" \
     "statsig.anthropic.com" \
     "statsig.com"; do
