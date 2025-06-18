@@ -30,11 +30,21 @@ Choose from three preconfigured devcontainer environments:
 ### 1. Choose Your Environment
 Select the devcontainer that matches your preferred programming language and use case.
 
-### 2. Open in VS Code
+### 2. Launch Your Environment
+
+#### Option A: VS Code with Dev Containers
 1. Make sure you have VS Code with the Dev Containers extension installed
 2. Open this repository in VS Code
 3. When prompted, select "Reopen in Container" or use `Ctrl+Shift+P` → "Dev Containers: Reopen in Container"
 4. Choose your preferred devcontainer from the list
+
+#### Option B: GitHub Codespaces
+1. Navigate to this repository on GitHub
+2. Click the green "Code" button
+3. Select the "Codespaces" tab
+4. Click "Create codespace on main" (or your preferred branch)
+5. Choose your preferred devcontainer when prompted
+6. Your environment will launch directly in your browser
 
 ### 3. Start Coding with AI Assistance
 
