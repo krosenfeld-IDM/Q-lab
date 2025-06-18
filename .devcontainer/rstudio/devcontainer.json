@@ -19,7 +19,6 @@
     }
   },
   "remoteEnv": {
-    // "R_LIBS_USER": "/home/node/R/library",
     "R_WORKDIR": "/workspace/Q-lab"
   },
   // Forward RStudio ports
@@ -31,7 +30,7 @@
       "onAutoForward": "ignore"
     }
   },
-  "postCreateCommand": "./postCreateCommand.sh echo 'postCreateCommand completed' > /tmp/attach-completed.log",
+  "postCreateCommand": "./postCreateCommand.sh && echo 'postCreateCommand completed' > /tmp/create-completed.log",
   // Use 'postAttachCommand' to run commands after the container is started.
   "postAttachCommand": "sudo /usr/sbin/rstudio-server start && echo 'postAttachCommand completed' > /tmp/attach-completed.log"
 }
