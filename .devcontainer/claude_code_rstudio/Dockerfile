@@ -3,6 +3,9 @@ FROM node:20
 ARG TZ
 ENV TZ="$TZ"
 
+# Add Debian 11 repository for libssl1.1
+RUN echo "deb http://deb.debian.org/debian bullseye main" >> /etc/apt/sources.list
+
 # Install basic development tools and iptables/ipset
 RUN apt update && apt install -y less \
   git \
@@ -26,22 +29,31 @@ RUN apt update && apt install -y less \
   wget \
   libcurl4-openssl-dev \
   libssl-dev \
+  libssl1.1 \
   libxml2-dev \
   libfontconfig1-dev \
   libharfbuzz-dev \
-  libfribidi-dev
+  libfribidi-dev \ 
+  r-base \
+  r-base-dev \
+  locales
 
-# Install R
-RUN apt install -y r-base r-base-dev
+# Generate the en_US.UTF-8 locale
+RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
+    locale-gen
 
-# Install RStudio
+# Set environment variables
+ENV LANG=en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
+
+# Install RStudio Server
 RUN ARCH=$(dpkg --print-architecture) && \
   if [ "$ARCH" = "amd64" ]; then \
-    wget https://download1.rstudio.org/electron/jammy/amd64/rstudio-2025.05.1-513-amd64.deb && \
-    gdebi -n rstudio-2025.05.1-513-amd64.deb && \
-    rm rstudio-2025.05.1-513-amd64.deb; \
+    wget https://download2.rstudio.org/server/focal/amd64/rstudio-server-2025.05.1-513-amd64.deb && \
+    gdebi -n rstudio-server-2025.05.1-513-amd64.deb && \
+    rm rstudio-server-2025.05.1-513-amd64.deb; \
   elif [ "$ARCH" = "arm64" ]; then \
-    echo "RStudio Desktop not available for ARM64, skipping RStudio installation"; \
+    echo "RStudio Server not available for ARM64, skipping installation"; \
   fi
 
 # Ensure default node user has access to /usr/local/share
@@ -70,11 +82,19 @@ RUN ARCH=$(dpkg --print-architecture) && \
   sudo dpkg -i "git-delta_0.18.2_${ARCH}.deb" && \
   rm "git-delta_0.18.2_${ARCH}.deb"
 
+# change user password
+RUN echo "node:rstudious" | chpasswd
+
+# Add node user to sudoers for rstudio-server command only
+RUN echo "node ALL=(ALL) NOPASSWD: /usr/sbin/rstudio-server" >> /etc/sudoers
+
+# Configure RStudio Server to use /workspace as default working directory
+RUN mkdir -p /etc/rstudio && \
+  echo "session-default-working-dir=/workspace" > /etc/rstudio/rsession.conf && \
+  echo "session-default-new-project-dir=/workspace" >> /etc/rstudio/rsession.conf
+
 # Set up non-root user
 USER node
-
-# change user password
-RUN echo "rstudio:rstudious" | chpasswd
 
 # Install global packages
 ENV NPM_CONFIG_PREFIX=/usr/local/share/npm-global
@@ -95,4 +115,10 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
 # Install Claude
 RUN npm install -g @anthropic-ai/claude-code
 
+# Copy and set up firewall script
+COPY init-firewall.sh /usr/local/bin/
+USER root
+RUN chmod +x /usr/local/bin/init-firewall.sh && \
+  echo "node ALL=(root) NOPASSWD: /usr/local/bin/init-firewall.sh" > /etc/sudoers.d/node-firewall && \
+  chmod 0440 /etc/sudoers.d/node-firewall
 USER node
