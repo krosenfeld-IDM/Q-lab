@@ -39,7 +39,13 @@ Select the devcontainer that matches your preferred programming language and use
 ### 3. Start Coding with AI Assistance
 
 #### Using Claude Code
-Claude Code is an interactive CLI tool that helps with software engineering tasks.
+
+To start:
+```bash
+claude
+```
+
+If this is your first time launching claude code you will be prompted to bill either through your subscription or the API.
 
 **Installation & Setup:**
 - Visit the [Claude Code documentation](https://docs.anthropic.com/en/docs/claude-code/overview) for installation instructions
@@ -53,7 +59,11 @@ Claude Code is an interactive CLI tool that helps with software engineering task
 - Git integration and code reviews
 
 #### Using Codex
-Codex provides powerful code generation and completion capabilities.
+To start:
+```bash
+export OPENAI_API_KEY="your-api-key-here"
+codex
+```
 
 **Getting Started:**
 - Visit the [OpenAI Codex GitHub repository](https://github.com/openai/codex) for setup instructions
