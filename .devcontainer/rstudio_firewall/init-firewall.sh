@@ -95,6 +95,9 @@ echo "Host network detected as: $HOST_NETWORK"
 iptables -A INPUT -s "$HOST_NETWORK" -j ACCEPT
 iptables -A OUTPUT -d "$HOST_NETWORK" -j ACCEPT
 
+# Allow inbound RStudio connections on port 8787 from host network
+iptables -A INPUT -s "$HOST_NETWORK" -p tcp --dport 8787 -j ACCEPT
+
 # Set default policies to DROP first
 iptables -P INPUT DROP
 iptables -P FORWARD DROP
