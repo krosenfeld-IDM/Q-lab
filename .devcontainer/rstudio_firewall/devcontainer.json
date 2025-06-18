@@ -1,15 +1,12 @@
 {
-  "name": "Claude Code Sandbox - RStudio",
+  "name": "RStudio - firewall enabled",
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
       "TZ": "${localEnv:TZ:America/Los_Angeles}"
     }
   },
-  "runArgs": [
-    "--cap-add=NET_ADMIN",
-    "--cap-add=NET_RAW"
-  ],
+  "runArgs": ["--cap-add=NET_ADMIN", "--cap-add=NET_RAW"],
   "customizations": {
     "vscode": {
       "extensions": [
@@ -46,9 +43,7 @@
     "R_WORKDIR": "/workspace"
   },
   // Forward RStudio ports
-  "forwardPorts": [
-    8787
-  ],
+  "forwardPorts": [8787],
   "portsAttributes": {
     "8787": {
       "label": "Rstudio",

@@ -1,5 +1,5 @@
 {
-  "name": "Claude Code Sandbox - Python",
+  "name": "Python - firewall enabled",
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
