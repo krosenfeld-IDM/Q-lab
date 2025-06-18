@@ -78,7 +78,6 @@ If this is your first time launching claude code you will be prompted to bill ei
 To start:
 
 ```bash
-export OPENAI_API_KEY="your-api-key-here"
 codex
 ```
 
