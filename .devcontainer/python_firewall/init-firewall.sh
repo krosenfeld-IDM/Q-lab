@@ -55,19 +55,25 @@ for domain in \
     "pypi.org" \
     "files.pythonhosted.org" \
     "api.anthropic.com" \
+    "api.openai.com" \
     "sentry.io" \
     "statsig.anthropic.com" \
     "statsig.com"; do
     echo "Resolving $domain..."
-    ips=$(dig +short A "$domain")
+    
+    # Use +trace to follow CNAME records and get final IP addresses
+    # Filter out everything except final A records
+    ips=$(dig +short "$domain" | grep -E '^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$')
+    
     if [ -z "$ips" ]; then
-        echo "ERROR: Failed to resolve $domain"
+        echo "ERROR: Failed to resolve $domain to IP addresses"
         exit 1
     fi
     
     while read -r ip; do
+        # Double-check IP format (should be redundant now but good for safety)
         if [[ ! "$ip" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
-            echo "ERROR: Invalid IP from DNS for $domain: $ip"
+            echo "ERROR: Invalid IP format for $domain: $ip"
             exit 1
         fi
         echo "Adding $ip for $domain"
