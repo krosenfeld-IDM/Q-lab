@@ -1,5 +1,5 @@
 {
-  "name": "Python",
+  "name": "Python - slim",
   "image": "ghcr.io/astral-sh/uv:python3.11-bookworm-slim",
   "customizations": {
     "vscode": {

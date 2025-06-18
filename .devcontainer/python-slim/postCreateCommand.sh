@@ -1,4 +1,7 @@
 #!/bin/bash
+apt update
+apt install curl
+
 curl -LsSf https://astral.sh/uv/install.sh | sh
 uv venv
 
