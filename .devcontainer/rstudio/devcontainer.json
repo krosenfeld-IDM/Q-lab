@@ -30,7 +30,7 @@
       "onAutoForward": "ignore"
     }
   },
-  "postCreateCommand": "./postCreateCommand.sh && echo 'postCreateCommand completed' > /tmp/create-completed.log",
+  "postCreateCommand": ".devcontainer/rstudio/postCreateCommand.sh && echo 'postCreateCommand completed' > /tmp/create-completed.log",
   // Use 'postAttachCommand' to run commands after the container is started.
   "postAttachCommand": "sudo /usr/sbin/rstudio-server start && echo 'postAttachCommand completed' > /tmp/attach-completed.log"
 }
