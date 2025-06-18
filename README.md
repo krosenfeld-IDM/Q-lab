@@ -4,18 +4,10 @@ GitHub template for AI coding assistants with ready-to-use devcontainers.
 
 ## Environments
 
-### ⚡ Quick Development (Default)
-- JavaScript/Node.js with Claude Code & Codex pre-installed
-- No firewall restrictions
-
-### 🐍 Python (`python_firewall`)
-- Python development with firewall configuration
-
-### 🌐 JavaScript (`javascript_firewall`) 
-- Node.js with modern tooling and firewall
-
-### 📊 RStudio (`rstudio_firewall`)
-- R and RStudio Server with firewall
+- ⚡ Quick Development (Default; no firewall restrictions)
+- 🐍 Python
+- 📊 RStudio (username/password: node/rstudious)
+- 🌐 JavaScript
 
 ## Quick Start
 
