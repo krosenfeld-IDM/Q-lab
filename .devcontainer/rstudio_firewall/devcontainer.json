@@ -1,5 +1,5 @@
 {
-  "name": "RStudio - firewall enabled",
+  "name": "Firewalled: RStudio",
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
