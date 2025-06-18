@@ -1,5 +1,5 @@
 {
-  "name": "Python",
+  "name": "No Firewall: Python",
   "image": "ghcr.io/astral-sh/uv:bookworm",
   "customizations": {
     "vscode": {
