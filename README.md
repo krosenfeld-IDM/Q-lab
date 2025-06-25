@@ -1,6 +1,6 @@
 # Q-lab
 
-GitHub template for AI coding assistants with ready-to-use devcontainers.
+GitHub template for AI coding assistants (Claude Code, Codex CLI, Gemini CLI) with ready-to-use devcontainers.
 
 ## Environments
 
@@ -14,7 +14,7 @@ There are also version with firewalls.
 
 1. **Use this template** - Click "Use this template" to create your repository
 2. **Open in Codespaces** - Click the green "Code" button → "Codespaces" → "Create codespace"
-3. **Start coding** - Run `claude` or `codex` in the terminal
+3. **Start coding** - Run `claude`, `codex`, or `gemini` in the terminal
 
 ## Resources
 
